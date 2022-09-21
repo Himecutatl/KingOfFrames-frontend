@@ -1,5 +1,8 @@
 # KingOfFrames
 
+DISCLAIMER:
+Due to some contraints the app is not completely built out to expectation in respect to adding the comment feature and database for KOFXV but will build out and style in the near future. 
+
 ### Your project idea 
 King of Frames is an app providing a convenient platform to reference characters' frame data from the King of Fighters series of video games, specifically King of Fighters XIII and XV. The importance of understanding frame data in competitive fighting games is proportional to how comprehension of Javascript is crucial for being a proficient web developer. The app will provide the raw numbers and images of each move, make note of any special properties (e.g. Invulnerability, Unblockable), and a comment functionality for users to make personal notes of any given set of data (ex: "This move punishable by my uppercut with a 4 frame leniency). 
 
