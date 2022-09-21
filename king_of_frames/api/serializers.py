@@ -6,17 +6,22 @@ from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
 User = get_user_model()
 
+
 class MoveListSerializer(serializers.ModelSerializer):
     class Meta:
         model = MoveList
         fields = '__all__'
 
+
 class CharacterSerializer(serializers.HyperlinkedModelSerializer):
     move_list = MoveListSerializer(many=True)
+    creator = serializers.ReadOnlyField(source='creator.username')
+    creator_id = serializers.ReadOnlyField(source='creator.id')
+    image_url = serializers.ImageField(required=False)
+
     class Meta:
         model = Character
         fields = '__all__'
-
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -30,7 +35,8 @@ class UserSerializer(serializers.ModelSerializer):
         password_confirmation = data.pop('password_confirmation')
 
         if password != password_confirmation:
-            raise serializers.ValidationError({'password_confirmation': 'Passwords do not match'})
+            raise serializers.ValidationError(
+                {'password_confirmation': 'Passwords do not match'})
 
         # try:
         #     validations.validate_password(password=password)
